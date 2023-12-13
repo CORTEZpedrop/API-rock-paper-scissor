@@ -2,6 +2,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"math/rand"
 	"net/http"
@@ -36,6 +37,9 @@ type Escolha struct {
 func main() {
 	// roteador Gin
 	r := gin.Default()
+
+	// liberar cors para o front acessar
+	r.Use(cors.Default())
 
 	// Rota test GET
 	r.GET("/test-connection", func(c *gin.Context) {
